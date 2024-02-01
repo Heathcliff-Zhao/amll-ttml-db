@@ -44,12 +44,12 @@ def convert(lrc_path):
     return lrc_content_formatted
 
 
-if not os.path.exists('../lrclib'):
-    os.makedirs('../lrclib')
+if not os.path.exists('./lrclib'):
+    os.makedirs('./lrclib')
 
-ttml_files = glob('../lyrics/*.ttml')
+ttml_files = glob('./lyrics/*.ttml')
 for ttml_file in ttml_files:
     lrc_content = convert(ttml_file)
-    lrc_file = '../lrclib/' + os.path.basename(ttml_file).replace('.ttml', '.lrc')
+    lrc_file = './lrclib/' + os.path.basename(ttml_file).replace('.ttml', '.lrc')
     with open(lrc_file, 'w', encoding='utf-8') as file:
         file.write(lrc_content)
