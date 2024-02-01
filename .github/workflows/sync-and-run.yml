@@ -13,12 +13,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          ssh-key: ${{ secrets.SSH_KEY }}
+          ssh-key: ${{ secrets.linux }}
 
       - name: Configure git
         run: |
           git config --global user.email "2826190541@qq.com"
-          git config --global user.name "Yue Zhao"
+          git config --global user.name "Heathcliff"
 
       - name: Sync fork
         run: |
@@ -42,3 +42,9 @@ jobs:
 
       - name: Run Python script
         run: python ./scripts/convert2simplelrc.py
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Update lyrics"
+          git push
