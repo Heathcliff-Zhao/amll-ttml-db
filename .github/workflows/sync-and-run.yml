@@ -1,0 +1,44 @@
+name: Sync Fork and Run Script
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天运行一次
+  workflow_dispatch:
+
+jobs:
+  sync-and-run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.SSH_KEY }}
+
+      - name: Configure git
+        run: |
+          git config --global user.email "2826190541@qq.com"
+          git config --global user.name "Yue Zhao"
+
+      - name: Sync fork
+        run: |
+          git remote add upstream git@github.com:Steve-xmh/amll-ttml-db.git
+          git fetch upstream
+          git checkout main
+          git merge upstream/main
+          git push
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies (if any)
+        run: |
+          python -m pip install --upgrade pip
+          pip install glob
+          pip install lxml
+          pip install re
+
+      - name: Run Python script
+        run: python ./scripts/convert2simplelrc.py
