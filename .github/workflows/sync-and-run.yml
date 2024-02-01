@@ -38,7 +38,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install glob2
           pip install lxml
-          pip install re
 
       - name: Run Python script
         run: python ./scripts/convert2simplelrc.py
