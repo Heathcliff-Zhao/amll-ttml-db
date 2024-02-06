@@ -234,6 +234,8 @@ async function main() {
 							}
 						}
 						if (issue.user) {
+							parsedLyric.metadata = parsedLyric.metadata.filter(v => v.key !== "ttmlAuthorGithub");
+							parsedLyric.metadata = parsedLyric.metadata.filter(v => v.key !== "ttmlAuthorGithubLogin");
 							parsedLyric.metadata.push({
 								key: "ttmlAuthorGithub",
 								value: [`${issue.user.id}`],
@@ -289,7 +291,7 @@ async function main() {
 							} catch { }
 							await createBranch(submitBranch);
 							const newFileName = `${Date.now()}-${issue.user?.id || "0"}-${uid(8)}.ttml`;
-							await writeFile(resolve("..", "raw-lyrics", newFileName), lyric);
+							await writeFile(resolve("..", "raw-lyrics", newFileName), regeneratedLyric);
 							await addFileToGit("..");
 							await commit(`提交歌曲歌词 ${newFileName} #${issue.number}`);
 							await push(submitBranch);
