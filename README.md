@@ -35,6 +35,7 @@
 
 - [Taylor Swift,Brendon Urie - ME! (feat. Brendon Urie of Panic! At The Disco) （含对唱/背景人声歌词）](./ncm-lyrics/1361348080.ttml)
 - [Jake Miller, HOYO-MiX - WHITE NIGHT (不眠之夜）（含对唱/背景人声歌词）](./ncm-lyrics/2122308128.ttml)
+- [ナユタン星人, 初音ミク - 太陽系デスコ（含对唱/背景人声歌词）](./ncm-lyrics/459717345.ttml)
 
 （歌词文件非常标准的也可以在 PR 时给本列表增加项目）
 
@@ -65,3 +66,9 @@
 ## 共享协议
 
 本仓库的外来数据部分遵循原数据提供方的共享协议共享，提交者自主编写的部分使用 CC0 1.0 共享协议共享。
+
+## 鸣谢
+
+感谢所有为建设本仓库提供歌词的贡献者们！
+
+![贡献者头像画廊](./CONTRIBUTORS.svg)
